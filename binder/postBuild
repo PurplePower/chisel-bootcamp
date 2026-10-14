@@ -3,8 +3,8 @@ set -e
 
 SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
 
-# Install coursier
-curl -fLo coursier https://github.com/coursier/launchers/raw/master/coursier
+# Install coursier (pinned to v2.0.16 for Java 8 compatibility)
+curl -fLo coursier https://github.com/coursier/coursier/releases/download/v2.0.16/coursier
 chmod +x coursier
 
 # Install almond

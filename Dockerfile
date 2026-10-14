@@ -38,7 +38,7 @@ FROM base as intermediate-builder
 RUN mkdir /coursier_cache
 
 RUN \
-    curl -fL -o coursier https://github.com/coursier/launchers/raw/master/coursier && \
+    curl -fL -o coursier https://github.com/coursier/coursier/releases/download/v2.0.16/coursier && \
     chmod +x coursier && \
     ./coursier \
         bootstrap \
