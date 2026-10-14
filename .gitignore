@@ -1,14 +1,39 @@
-/.idea
-/.ipynb_checkpoints
-/test_run_dir
-/.DS_Store
-/*/.DS_Store
-/*/*/.DS_Store
+# IDEs & Editors
+/.idea/
+/.vscode/
+/.bsp/
+/.metals/
+/.scala-build/
+/.bloop/
+*.iml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Chisel / FIRRTL / Scala build & test outputs
+/test_run_dir/
+/diagrams/
+/target/
+/project/target/
+/project/project/
 *.anno
+*.anno.json
 *.fir
 *.v
+*.vcd
 *.xml
 
-# Jupyter-scala scripts
+# Jupyter-scala / Almond scripts
 coursier
+coursier.bat
 almond
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+/*/.DS_Store
+/*/*/.DS_Store
+Thumbs.db

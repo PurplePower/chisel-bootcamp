@@ -38,7 +38,7 @@ FROM base as intermediate-builder
 RUN mkdir /coursier_cache
 
 RUN \
-    curl -L -o coursier https://git.io/coursier-cli && \
+    curl -fL -o coursier https://github.com/coursier/launchers/raw/master/coursier && \
     chmod +x coursier && \
     ./coursier \
         bootstrap \
@@ -48,7 +48,7 @@ RUN \
         --default=true \
         -o almond && \
     ./almond --install --global && \
-    \rm -rf almond couriser /root/.cache/coursier 
+    \rm -rf almond coursier /root/.cache/coursier
 
 # Execute a notebook to ensure Chisel is downloaded into the image for offline work
 RUN jupyter nbconvert --to notebook --output=/tmp/0_demo --execute 0_demo.ipynb

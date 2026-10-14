@@ -1,0 +1,7 @@
+name: chisel-bootcamp
+channels:
+  - conda-forge
+dependencies:
+  - openjdk=8.0.*
+  - graphviz
+  - nbclassic

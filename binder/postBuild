@@ -1,9 +1,10 @@
 #!/bin/bash
+set -e
 
 SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
 
 # Install coursier
-curl -Lo coursier https://git.io/coursier-cli
+curl -fLo coursier https://github.com/coursier/launchers/raw/master/coursier
 chmod +x coursier
 
 # Install almond
@@ -14,10 +15,12 @@ chmod +x coursier
     --sources --default=true \
     -o almond
 ./almond --install
-
-# Install required Jupyter/JupyterLab extensions
-jupyter labextension install @jupyterlab/plotly-extension
+rm -f coursier almond
 
 # Install custom Javascript for solutions
 mkdir -p ~/.jupyter/custom
 cp source/custom.js ~/.jupyter/custom/custom.js
+
+# Pre-execute 0_demo.ipynb to cache Chisel dependencies into the image
+jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=600 --output=/tmp/0_demo 0_demo.ipynb
+rm -rf /tmp/0_demo.ipynb diagrams
